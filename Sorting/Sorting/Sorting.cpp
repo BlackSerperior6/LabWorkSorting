@@ -8,6 +8,7 @@ using namespace std;
 #include "BucketSorting.h"
 #include "ShellSort.h"
 #include "QuickSorting.h"
+#include "NaturalMerge.h"
 
 typedef void(*functionPointer)(int*, int);
 
@@ -33,8 +34,7 @@ int main()
 	setlocale(LC_ALL, "RUS");
 	srand(time(0));
 
-	functionPointer functions[] = {&SortByMerging, &QuickSort, &SortByCounting, 
-		&BucketSorting, &ShellsSort, &HoareQuickSorting};
+	functionPointer functions[] = {&SortUsingNaturalMerge};
 
 	cout << "----------------------------------------" << endl;
 

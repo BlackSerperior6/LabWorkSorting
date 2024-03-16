@@ -38,5 +38,8 @@
     <ClInclude Include="QuickSorting.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="NaturalMerge.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

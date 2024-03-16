@@ -144,6 +144,7 @@
   <ItemGroup>
     <ClInclude Include="BucketSorting.h" />
     <ClInclude Include="HoareQuickSorting.h" />
+    <ClInclude Include="NaturalMerge.h" />
     <ClInclude Include="QuickSorting.h" />
     <ClInclude Include="ShellSort.h" />
     <ClInclude Include="SortByCounting.h" />
