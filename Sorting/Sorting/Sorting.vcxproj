@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{1786dd9c-241f-4f25-97b3-3c8e748accdc}</ProjectGuid>
-    <RootNamespace>Merging</RootNamespace>
+    <ProjectGuid>{01724646-c069-47d0-97b5-04bb5ca00a84}</ProjectGuid>
+    <RootNamespace>Sorting</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,7 +139,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Merging.cpp" />
+    <ClCompile Include="Sorting.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BucketSorting.h" />
+    <ClInclude Include="HoareQuickSorting.h" />
+    <ClInclude Include="QuickSorting.h" />
+    <ClInclude Include="ShellSort.h" />
+    <ClInclude Include="SortByCounting.h" />
+    <ClInclude Include="SortByMerging.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
