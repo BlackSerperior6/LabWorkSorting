@@ -34,7 +34,7 @@ int main()
 	setlocale(LC_ALL, "RUS");
 	srand(time(0));
 
-	functionPointer functions[] = {&SortUsingNaturalMerge};
+	functionPointer functions[] = {&SortByMerging, &SortByCounting, &BucketSorting, &HoareQuickSorting, &ShellsSort, &QuickSort, &SortUsingNaturalMerge};
 
 	cout << "----------------------------------------" << endl;
 

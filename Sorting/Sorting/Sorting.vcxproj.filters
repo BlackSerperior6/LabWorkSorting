@@ -41,5 +41,8 @@
     <ClInclude Include="NaturalMerge.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="ManyPhaseMergeSorting.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
