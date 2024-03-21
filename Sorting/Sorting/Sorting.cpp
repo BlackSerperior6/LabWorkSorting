@@ -1,4 +1,5 @@
 ﻿#include <iostream>
+#include <chrono>
 
 using namespace std;
 
@@ -39,6 +40,7 @@ int main()
 	for (functionPointer function : functions) //Цикл for, проходящий по каждой функции
 	{
 		int Lenght;
+		chrono::steady_clock::time_point start, end;
 
 		do //Пользователь задает длинну
 		{
@@ -56,11 +58,14 @@ int main()
 
 		PrintArr(Arr, Lenght); //Печатаем неотсортированный массив
 
+		start = chrono::high_resolution_clock::now();
 		function(Arr, Lenght); //Сортируем
+		end = chrono::high_resolution_clock::now();
 
 		cout << "Отсортированый массив: " << endl;
 
 		PrintArr(Arr, Lenght); //Вновь печатаем
+		cout << "Время выполнения сортировки: " << (end - start).count() << endl;
 
 		do //Вновь получаем длинну от пользователя
 		{
@@ -78,11 +83,14 @@ int main()
 		for (int i = 0; i < Lenght; i++)
 			cin >> Arr[i]; //В этот раз пользователь сам вводит числа
 
+		start = chrono::high_resolution_clock::now();
 		function(Arr, Lenght); //Сортируем
+		end = chrono::high_resolution_clock::now();
 
 		cout << "Отсортированый массив: " << endl;
 
-		PrintArr(Arr, Lenght); //Выводим
+		PrintArr(Arr, Lenght); //Вновь печатаем
+		cout << "Время выполнения сортировки: " << (end - start).count() << endl;
 
 		delete[] Arr; //Чистим память
 
