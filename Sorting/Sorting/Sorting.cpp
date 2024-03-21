@@ -8,18 +8,16 @@ using namespace std;
 #include "BucketSorting.h"
 #include "ShellSort.h"
 #include "QuickSorting.h"
-#include "NaturalMerge.h"
 
 typedef void(*functionPointer)(int*, int);
 
-void PrintArr(int* Arr, int Length) 
+void PrintArr(int* Arr, int Length) //Метод печати массива
 {
 	if (Length == 0)
 	{
 		cout << "Массив пуст" << endl;
 		return;
 	}
-		
 
 	cout << Arr[0];
 
@@ -34,59 +32,59 @@ int main()
 	setlocale(LC_ALL, "RUS");
 	srand(time(0));
 
-	functionPointer functions[] = {&SortByMerging, &SortByCounting, &BucketSorting, &HoareQuickSorting, &ShellsSort, &QuickSort, &SortUsingNaturalMerge};
+	functionPointer functions[] = {&SortByMerging, &SortByCounting, &HoareQuickSorting, &ShellsSort, &QuickSort, &BucketSorting}; //Машина состояний со всеми методами сортировки
 
 	cout << "----------------------------------------" << endl;
 
-	for (functionPointer function : functions)
+	for (functionPointer function : functions) //Цикл for, проходящий по каждой функции
 	{
 		int Lenght;
 
-		do
+		do //Пользователь задает длинну
 		{
 			cout << "Режим генерации случайных элементов. Сколько должно быть элементов? Должно быть > 1" << endl;
 			cin >> Lenght;
 		}
-		while (Lenght <= 1);
+		while (Lenght <= 1); //Пока не задаст нужную
 
-		int *Arr = new int[Lenght];
+		int *Arr = new int[Lenght]; //Инициализируем массив, который будем сортировать
 
 		for (int i = 0; i < Lenght; i++)
-			Arr[i] = rand() % 100;
+			Arr[i] = rand() % 100; //Заполняем его случайными числами
 
-		cout << "Неосортированый массив: " << endl;
+		cout << "Неотсортированый массив: " << endl;
 
-		PrintArr(Arr, Lenght);
+		PrintArr(Arr, Lenght); //Печатаем неотсортированный массив
 
-		function(Arr, Lenght);
+		function(Arr, Lenght); //Сортируем
 
 		cout << "Отсортированый массив: " << endl;
 
-		PrintArr(Arr, Lenght);
+		PrintArr(Arr, Lenght); //Вновь печатаем
 
-		do
+		do //Вновь получаем длинну от пользователя
 		{
 			cout << "Режим задавания элементов вручную. Сколько должно быть элементов? Должно быть > 1" << endl;
 			cin >> Lenght;
 		} 
 		while (Lenght <= 1);
 
-		delete[] Arr;
+		delete[] Arr; //Очищаем предыдущие содержание массива
 
-		Arr = new int[Lenght];
+		Arr = new int[Lenght]; //Задаем его по новой
 
 		cout << "Начинайте поочереди вводить элементы по одному" << endl;
 
 		for (int i = 0; i < Lenght; i++)
-			cin >> Arr[i];
+			cin >> Arr[i]; //В этот раз пользователь сам вводит числа
 
-		function(Arr, Lenght);
+		function(Arr, Lenght); //Сортируем
 
 		cout << "Отсортированый массив: " << endl;
 
-		PrintArr(Arr, Lenght);
+		PrintArr(Arr, Lenght); //Выводим
 
-		delete[] Arr;
+		delete[] Arr; //Чистим память
 
 		cout << "----------------------------------------" << endl;
 	}

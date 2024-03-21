@@ -5,65 +5,69 @@ using namespace std;
 
 void HoareQuickSorting(int* Arr, int startIndex, int endIndex)
 {
+    //Если индекс начался <= индекс конца
     if (startIndex <= endIndex)
     {
-        int middle = Arr[(startIndex + endIndex) / 2];
+        int middleElement = Arr[(startIndex + endIndex) / 2]; //Находим средний элемент
 
-        int Left = startIndex;
-        int Right = endIndex;
+        //Заводим индексы левого и правого элементов
+        int LeftIndex = startIndex; 
+        int RightIndex = endIndex;
 
-        while (Left <= Right)
+        while (LeftIndex <= RightIndex) //Пока левый индекс <= правого
         {
-            while (Arr[Left] < middle)
-                Left++;
+            while (Arr[LeftIndex] < middleElement) //Пока значение по левому индексу < среднего элемента
+                LeftIndex++; //Увеличиваем левый индекс
 
-            while (Arr[Right] > middle)
-                Right--;
+            while (Arr[RightIndex] > middleElement) //Пока значение по правому индексу > среднее значение
+                RightIndex--; //Уменьшаем правый индекс
 
-            if (Left <= Right)
+            if (LeftIndex <= RightIndex) //Если левый индекс <= правого
             {
-                int tmp = Arr[Left];
-                Arr[Left] = Arr[Right];
-                Arr[Right] = tmp;
-                Left++;
-                Right--;
+                //Меняем значение по ним местами
+                int tmp = Arr[LeftIndex];
+                Arr[LeftIndex] = Arr[RightIndex];
+                Arr[RightIndex] = tmp;
+
+                LeftIndex++; //Увеличиваем левый индекс
+                RightIndex--; //Уменьшаем правый индекс
             }
         }
 
-        HoareQuickSorting(Arr, startIndex, Right);
-        HoareQuickSorting(Arr, Left, endIndex);
+        HoareQuickSorting(Arr, startIndex, RightIndex); //Уходим в рекурсию. Начало не меняем, конец = правый индекс
+        HoareQuickSorting(Arr, LeftIndex, endIndex); //Начало = левый индекс, конец не меняем
     }
 }
 
-void HoareQuickSorting(pair<int, int>* Arr, int startIndex, int endIndex)
+void HoareQuickSorting(pair<int, int>* Arr, int startIndex, int endIndex) //Перегрузка для типа данных pair<int, int>. Работает аналогично перегрузке выше
 {
     if (startIndex <= endIndex)
     {
-        int middle = Arr[(startIndex + endIndex) / 2].first;
+        int middleElement = Arr[(startIndex + endIndex) / 2].first;
 
-        int Left = startIndex;
-        int Right = endIndex;
+        int LeftIndex = startIndex;
+        int RightIndex = endIndex;
 
-        while (Left <= Right)
+        while (LeftIndex <= RightIndex)
         {
-            while (Arr[Left].first < middle)
-                Left++;
+            while (Arr[LeftIndex].first < middleElement)
+                LeftIndex++;
 
-            while (Arr[Right].first > middle)
-                Right--;
+            while (Arr[RightIndex].first > middleElement)
+                RightIndex--;
 
-            if (Left <= Right)
+            if (LeftIndex <= RightIndex)
             {
-                pair<int, int> tmp = Arr[Left];
-                Arr[Left] = Arr[Right];
-                Arr[Right] = tmp;
-                Left++;
-                Right--;
+                pair<int, int> tmp = Arr[LeftIndex];
+                Arr[LeftIndex] = Arr[RightIndex];
+                Arr[RightIndex] = tmp;
+                LeftIndex++;
+                RightIndex--;
             }
         }
 
-        HoareQuickSorting(Arr, startIndex, Right);
-        HoareQuickSorting(Arr, Left, endIndex);
+        HoareQuickSorting(Arr, startIndex, RightIndex);
+        HoareQuickSorting(Arr, LeftIndex, endIndex);
     }
 }
 
@@ -71,5 +75,5 @@ void HoareQuickSorting(int *Arr, int Lenght)
 {
     cout << "Метод быстрой сортировки Хоара!" << endl;
 
-    HoareQuickSorting(Arr, 0, Lenght - 1);
+    HoareQuickSorting(Arr, 0, Lenght - 1); //Запускаем рекурсию с начальным индексом 0 и индексом конца массива
 }
