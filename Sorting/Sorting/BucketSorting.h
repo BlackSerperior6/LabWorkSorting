@@ -51,7 +51,6 @@ void BucketSorting(int* Arr, int Lenght)
 
 	for (int i = 0; i < AmountOfBuckets; i++) //Сортируем каждый блок
 		HoareQuickSorting(BucketsAndLeghths[i].first, 0, BucketsAndLeghths[i].second - 1);
-		
 
 	int index = 0;
 

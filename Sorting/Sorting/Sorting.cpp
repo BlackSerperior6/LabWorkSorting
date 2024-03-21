@@ -14,7 +14,7 @@ typedef void(*functionPointer)(int*, int);
 
 void PrintArr(int* Arr, int Length) //Метод печати массива
 {
-	if (Length == 0)
+	if (Length <= 0)
 	{
 		cout << "Массив пуст" << endl;
 		return;
@@ -26,7 +26,7 @@ void PrintArr(int* Arr, int Length) //Метод печати массива
 		cout << " " << Arr[i];
 
 	cout << endl;
-};
+}
 
 int main()
 {
